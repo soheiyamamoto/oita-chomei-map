@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>大分市 町名マップ</title>
+
+  <!-- MapLibre GL JS (CDN) -->
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="map" aria-label="大分市 町名地図"></div>
+
+  <!-- アプリタイトル(左上) -->
+  <div id="app-title">大分市 町名マップ</div>
+
+  <!-- 表示切り替えトグル(上部中央) -->
+  <div id="mode-toggle" role="group" aria-label="町名表示の切り替え">
+    <button type="button" class="toggle-btn is-active" data-mode="tsusho" aria-pressed="true">通称</button>
+    <button type="button" class="toggle-btn" data-mode="kosho" aria-pressed="false">公称</button>
+  </div>
+
+  <!-- エラーメッセージ表示領域(初期は非表示) -->
+  <div id="error-banner" role="alert" hidden></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

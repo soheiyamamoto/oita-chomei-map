@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6057, 33.2352] },
+      "properties": { "id": "0001", "tsusho": "中央町", "kosho": "大字荷揚字中央", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6089, 33.2358] },
+      "properties": { "id": "0002", "tsusho": "府内町", "kosho": "大字府内字本町", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6125, 33.2371] },
+      "properties": { "id": "0003", "tsusho": "都町", "kosho": "大字都字上市", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6103, 33.2389] },
+      "properties": { "id": "0004", "tsusho": "荷揚町", "kosho": "荷揚町", "note": "サンプル(通称=公称)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6071, 33.2401] },
+      "properties": { "id": "0005", "tsusho": "顕徳町", "kosho": "大字顕徳字宮園", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6042, 33.2378] },
+      "properties": { "id": "0006", "tsusho": "大手町", "kosho": "大手町", "note": "サンプル(通称=公称)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6018, 33.2338] },
+      "properties": { "id": "0007", "tsusho": "金池町", "kosho": "大字金池字駅前", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6096, 33.2321] },
+      "properties": { "id": "0008", "tsusho": "錦町", "kosho": "大字錦字南", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6135, 33.2340] },
+      "properties": { "id": "0009", "tsusho": "末広町", "kosho": "大字末広字東", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6008, 33.2308] },
+      "properties": { "id": "0010", "tsusho": "要町", "kosho": "要町", "note": "サンプル(通称=公称)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6152, 33.2312] },
+      "properties": { "id": "0011", "tsusho": "高砂町", "kosho": "大字高砂字浜", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.5985, 33.2359] },
+      "properties": { "id": "0012", "tsusho": "王子町", "kosho": "大字王子字西", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6167, 33.2368] },
+      "properties": { "id": "0013", "tsusho": "千代町", "kosho": "大字千代字北", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.6040, 33.2295] },
+      "properties": { "id": "0014", "tsusho": "寿町", "kosho": "大字寿字南浜", "note": "サンプル(動作確認用)" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [131.5968, 33.2330] },
+      "properties": { "id": "0015", "tsusho": "春日町", "kosho": "大字春日字宮前", "note": "サンプル(動作確認用)" }
+    }
+  ]
+}
