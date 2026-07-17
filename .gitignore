@@ -9,3 +9,7 @@
 # Logs / temp
 *.log
 node_modules/
+
+# データ変換ワークフローの一時作業フォルダ(抽出テキスト・依頼文など中間生成物)。
+# 正式な成果物は data/sources/*.csv に格納される。
+oita-taishobo-work/
