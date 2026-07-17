@@ -118,5 +118,101 @@
     return s;
   }
 
-  return { normalize: normalize };
+  // ----- 文字種境界での分割(かな漢字 ⇔ 英数字・記号) -----
+  // 「カームタウンA-10」のように、通称(かな)と建物番号(英数字)が
+  // 連続している表記をトークンに分けるために使う。
+  var JA_CHAR_RE = /[々〆぀-ゟ゠-ヿｦ-ﾝ㐀-䶿一-鿿]/;
+
+  function splitByScriptBoundary(str) {
+    var tokens = [];
+    var current = "";
+    var currentClass = null;
+
+    for (var i = 0; i < str.length; i++) {
+      var ch = str[i];
+      var cls = JA_CHAR_RE.test(ch) ? "JA" : "OTHER";
+      if (currentClass === null) {
+        currentClass = cls;
+        current = ch;
+      } else if (cls === currentClass) {
+        current += ch;
+      } else {
+        tokens.push(current);
+        current = ch;
+        currentClass = cls;
+      }
+    }
+    if (current) tokens.push(current);
+
+    return tokens
+      .map(function (t) {
+        return t.trim();
+      })
+      .filter(function (t) {
+        return t.length > 0;
+      });
+  }
+
+  // ----- 複数トークンの AND 検索 -----
+  function andSearch(records, tokens) {
+    var normTokens = tokens
+      .map(normalize)
+      .filter(function (t) {
+        return t.length > 0;
+      });
+    if (normTokens.length === 0) return [];
+
+    return records.filter(function (r) {
+      return normTokens.every(function (t) {
+        return r.norm.indexOf(t) !== -1;
+      });
+    });
+  }
+
+  /**
+   * 住所検索の本体(2段階)。
+   * 1. 空白区切りで複数キーワードが入力された場合は、最初から全キーワードの
+   *    AND 検索とする(usedFallback: false)。
+   * 2. 単一トークンの場合は、まず正規化した全文字列での部分一致を試す。
+   * 3. 部分一致が 0 件のときに限り、文字種境界(かな漢字⇔英数字)でトークンに
+   *    分割し、AND 検索にフォールバックする(usedFallback: true)。
+   *    例:「カームタウンA-10」→「カームタウン」と「A-10」の間に地区名
+   *    (「木ノ上」)を挟む実データでも、この段階でヒットする。
+   */
+  function searchRecords(records, rawQuery) {
+    var trimmed = String(rawQuery === null || rawQuery === undefined ? "" : rawQuery).trim();
+    if (!trimmed) return { hits: [], usedFallback: false };
+
+    var whitespaceTokens = trimmed.split(/\s+/).filter(function (t) {
+      return t.length > 0;
+    });
+
+    if (whitespaceTokens.length > 1) {
+      return { hits: andSearch(records, whitespaceTokens), usedFallback: false };
+    }
+
+    var q = normalize(trimmed);
+    var directHits = records.filter(function (r) {
+      return r.norm.indexOf(q) !== -1;
+    });
+    if (directHits.length > 0) {
+      return { hits: directHits, usedFallback: false };
+    }
+
+    var boundaryTokens = splitByScriptBoundary(trimmed);
+    if (boundaryTokens.length > 1) {
+      var fallbackHits = andSearch(records, boundaryTokens);
+      if (fallbackHits.length > 0) {
+        return { hits: fallbackHits, usedFallback: true };
+      }
+    }
+
+    return { hits: [], usedFallback: false };
+  }
+
+  return {
+    normalize: normalize,
+    splitByScriptBoundary: splitByScriptBoundary,
+    searchRecords: searchRecords,
+  };
 });

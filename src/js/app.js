@@ -24,7 +24,7 @@
   var DEFAULT_ZOOM = 14;
   var SELECTED_ZOOM = 15;
 
-  var normalize = window.OitaNormalize.normalize;
+  var searchRecords = window.OitaNormalize.searchRecords;
 
   // ----- 状態 -----
   var records = []; // lookup.json の records(norm フィールド付き)
@@ -128,6 +128,9 @@
     });
 
   // ----- 検索 -----
+  // 2段階検索: ①まず部分一致 → ②0件のときのみ文字種境界(かな漢字⇔英数字)で
+  // トークン分割してAND検索にフォールバックする。空白区切りで複数キーワードが
+  // 入力された場合は、最初からAND検索として扱う(詳細は normalize.js 参照)。
   function performSearch(rawQuery) {
     var trimmed = rawQuery.trim();
 
@@ -136,12 +139,8 @@
       return;
     }
 
-    var q = normalize(trimmed);
-    var hits = records.filter(function (r) {
-      return r.norm.indexOf(q) !== -1;
-    });
-
-    renderResults(hits);
+    var result = searchRecords(records, trimmed);
+    renderResults(result.hits, result.usedFallback);
   }
 
   function renderIdle() {
@@ -149,7 +148,7 @@
     resultsSummary.textContent = "町名・旧住所・通称のいずれかを2文字以上入力してください。";
   }
 
-  function renderResults(hits) {
+  function renderResults(hits, usedFallback) {
     resultsList.innerHTML = "";
 
     if (hits.length === 0) {
@@ -162,10 +161,16 @@
 
     var shown = hits.slice(0, MAX_RESULTS);
 
-    resultsSummary.textContent =
+    var summaryText =
       hits.length > MAX_RESULTS
         ? "該当 " + hits.length + " 件中、上位 " + MAX_RESULTS + " 件を表示しています。絞り込んでください。"
         : "該当 " + hits.length + " 件";
+
+    if (usedFallback) {
+      summaryText += "(完全一致では見つからなかったため、キーワード分割で検索した結果です)";
+    }
+
+    resultsSummary.textContent = summaryText;
 
     shown.forEach(function (record) {
       resultsList.appendChild(buildResultItem(record));
