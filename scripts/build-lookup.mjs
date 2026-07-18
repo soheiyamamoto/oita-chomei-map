@@ -26,6 +26,10 @@ const OUTPUT_PATH = path.join(ROOT, "src", "data", "lookup.json");
 // 緯度経度を参照できるよう districts.json も src/data/ へ複製する。
 const DISTRICTS_OUTPUT_PATH = path.join(ROOT, "src", "data", "districts.json");
 
+// data/sources/ 直下にあるが対照簿データではないファイル(処理管理台帳など)。
+// v2 の10列ヘッダーを持たないため、変換対象から除外する。
+const NON_SOURCE_FILES = new Set(["districts-ledger.csv"]);
+
 const REQUIRED_HEADER = [
   "seq",
   "old_address",
@@ -139,6 +143,7 @@ function main() {
   const csvFiles = fs
     .readdirSync(SOURCES_DIR)
     .filter((f) => f.toLowerCase().endsWith(".csv"))
+    .filter((f) => !NON_SOURCE_FILES.has(f))
     .sort();
 
   if (csvFiles.length === 0) {

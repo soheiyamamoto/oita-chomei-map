@@ -61,6 +61,7 @@ oita-chomei-map/
 │   └── history.md                     # v1→v2 転換の経緯
 ├── data/
 │   ├── sources/*.csv                  # 地区別の変換済み対照簿データ(ビルド入力)
+│   ├── sources/districts-ledger.csv   # 38地区分の処理管理台帳(ビルド対象外)
 │   └── districts.json                 # 地区メタデータ(スラッグ・実施日・代表点座標)
 ├── scripts/
 │   └── build-lookup.mjs               # CSV → src/data/lookup.json 変換スクリプト
@@ -89,6 +90,11 @@ oita-chomei-map/
 3. 以下のビルドスクリプトを実行し、`src/data/lookup.json`(検索用データ)と
    `src/data/districts.json`(地図移動用の地区座標。GitHub Pages が `src/` 配下のみを
    配信するための複製)を生成する。
+
+`data/sources/districts-ledger.csv` は、地区別の PDF URL・実施日・処理状況を管理する
+**処理管理台帳**です(38地区分)。`status` 列を `pending → in_progress → done` と
+更新しながら、残り地区のデータ整備を1地区ずつ進める進捗管理に使います。
+対照簿データ本体ではないため、`build-lookup.mjs` の変換対象からは除外しています。
 
 ```bash
 node scripts/build-lookup.mjs
