@@ -26,10 +26,6 @@ const OUTPUT_PATH = path.join(ROOT, "src", "data", "lookup.json");
 // 緯度経度を参照できるよう districts.json も src/data/ へ複製する。
 const DISTRICTS_OUTPUT_PATH = path.join(ROOT, "src", "data", "districts.json");
 
-// data/sources/ 直下にあるが対照簿データではないファイル(処理管理台帳など)。
-// v2 の10列ヘッダーを持たないため、変換対象から除外する。
-const NON_SOURCE_FILES = new Set(["districts-ledger.csv"]);
-
 const REQUIRED_HEADER = [
   "seq",
   "old_address",
@@ -140,11 +136,28 @@ function main() {
     console.error(`エラー: データソースディレクトリが見つかりません: ${SOURCES_DIR}`);
     process.exit(1);
   }
-  const csvFiles = fs
+  // data/sources/ 直下の CSV のうち、対照簿 v2 の10列ヘッダーを持つものだけを
+  // 変換対象とする。処理管理台帳など別形式のファイルは、ファイル名に依存せず
+  // ヘッダー形式で判別してスキップする(名指しの除外リストは持たない)。
+  const allCsvFiles = fs
     .readdirSync(SOURCES_DIR)
     .filter((f) => f.toLowerCase().endsWith(".csv"))
-    .filter((f) => !NON_SOURCE_FILES.has(f))
     .sort();
+
+  const csvFiles = allCsvFiles.filter((f) => {
+    const firstLine = fs
+      .readFileSync(path.join(SOURCES_DIR, f), "utf8")
+      .split("\n")[0]
+      .trim();
+    const header = firstLine.split(",");
+    const isSourceCsv = REQUIRED_HEADER.every((col, i) => header[i] === col);
+    if (!isSourceCsv) {
+      console.warn(
+        `[skip] ${f}: ヘッダー不一致のため対照簿データとして扱わずスキップしました`
+      );
+    }
+    return isSourceCsv;
+  });
 
   if (csvFiles.length === 0) {
     console.error(`エラー: ${SOURCES_DIR} に CSV ファイルがありません`);
