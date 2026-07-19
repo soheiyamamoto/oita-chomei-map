@@ -5,12 +5,12 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 4,高城台地区,大字小池原・大字千歳・大字東明野,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/takajodai.pdf,138,pending,,
 5,宗方台地区,大字上宗方・大字小野鶴,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/munakatadai.pdf,232,pending,,
 6,深河内地区,大字荏隈・大字永興,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hukagawauti.pdf,85,pending,,
-7,上野丘二丁目隣接地区,大字永興・大字上野,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/uenogaoka.pdf,46,pending,,最小クラス
+7,上野丘二丁目隣接地区,大字永興・大字上野,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/uenogaoka.pdf,46,in_progress,,最小クラス
 8,新明治地区,大字猪野,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-sinnmeiji.pdf,87,pending,,
 9,萌葱台地区,大字市・大字小野鶴・大字田原,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-moegidai.pdf,314,pending,,
 10,梅が丘地区,大字杉原,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-umegaoka.pdf,112,pending,,
-11,京が丘南4丁目地区,大字下判田・大字松岡,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kyougaoka.pdf,52,pending,,
-12,国分台地区,大字国分,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kokubudai.pdf,53,pending,,
+11,京が丘南4丁目地区,大字下判田・大字松岡,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kyougaoka.pdf,52,in_progress,,
+12,国分台地区,大字国分,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kokubudai.pdf,53,in_progress,,
 13,ふじが丘地区,大字光吉・大字田尻・大字寒田・大字岡川,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/fujigaoka.pdf,675,pending,,
 14,城南団地地区,大字永興・大字三芳,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/jyonan.pdf,275,pending,,
 15,新川西地区,大字勢家,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/sinkawanisi.pdf,138,pending,,
@@ -31,9 +31,9 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 30,雄城台団地・雄城台住宅地・椿ケ丘・二豊および上宗方の一部地区,(資料に大字記載なし),2019-01-12,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyusintaisyoubo.pdf,63,pending,,
 31,東原地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/higasibaru.pdf,402,pending,,
 32,明野南二丁目隣接地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/akenominamikyuusinntaisyoubo.pdf,13,done,,最小(全地区中最小)
-33,田尻南地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/tajiriminamikyuusinntaisyoubo.pdf,30,pending,,
+33,田尻南地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/tajiriminamikyuusinntaisyoubo.pdf,30,in_progress,,
 34,判田台地区,(資料に大字記載なし),2018-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hanndadai.pdf,80,pending,,
 35,寒田わかば台地区,(資料に大字記載なし),2017-11-03,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/soudawakabadai.pdf,16,done,,
 36,下郡山の手地区,(資料に大字記載なし),2017-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/simogooriyamanote.pdf,22,done,,
 37,松が丘地区,(資料に大字記載なし),2016-01-09,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/matugaoka.pdf,70,pending,,
-38,京が丘地区,(資料に大字記載なし),2015-11-21,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyougaoka.pdf,27,pending,,
+38,京が丘地区,(資料に大字記載なし),2015-11-21,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyougaoka.pdf,27,done,,
