@@ -9,7 +9,7 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 8,新明治地区,大字猪野,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-sinnmeiji.pdf,87,pending,,
 9,萌葱台地区,大字市・大字小野鶴・大字田原,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-moegidai.pdf,314,pending,,
 10,梅が丘地区,大字杉原,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-umegaoka.pdf,112,pending,,
-11,京が丘南4丁目地区,大字下判田・大字松岡,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kyougaoka.pdf,52,in_progress,,
+11,京が丘南4丁目地区,大字下判田・大字松岡,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kyougaoka.pdf,52,done,,
 12,国分台地区,大字国分,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kokubudai.pdf,53,in_progress,,
 13,ふじが丘地区,大字光吉・大字田尻・大字寒田・大字岡川,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/fujigaoka.pdf,675,pending,,
 14,城南団地地区,大字永興・大字三芳,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/jyonan.pdf,275,pending,,
