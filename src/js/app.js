@@ -177,6 +177,16 @@
     });
   }
 
+  // 資料上その列の情報が実質存在しない値かどうかを判定する。
+  // 空文字列に加え、「★」(法人等を示す記号のみが残るケース)のように
+  // 実質的な内容を持たない値もここでまとめて扱う。
+  var BLANK_LIKE_PATTERN = /^[★\s]*$/;
+  function isBlankLike(value) {
+    if (value === null || value === undefined) return true;
+    return BLANK_LIKE_PATTERN.test(String(value));
+  }
+  var NOT_RECORDED_TEXT = "(資料に記載なし)";
+
   function buildResultItem(record) {
     var li = document.createElement("li");
     li.className = "result-item";
@@ -191,10 +201,9 @@
 
     var secondary = document.createElement("div");
     secondary.className = "result-secondary";
-    var secondaryText = "旧住所: " + record.old;
-    if (record.alias) {
-      secondaryText += " ／ 通称: " + record.alias;
-    }
+    var oldText = isBlankLike(record.old) ? NOT_RECORDED_TEXT : record.old;
+    var aliasText = isBlankLike(record.alias) ? NOT_RECORDED_TEXT : record.alias;
+    var secondaryText = "旧住所: " + oldText + " ／ 通称: " + aliasText;
     secondary.textContent = secondaryText;
 
     var meta = document.createElement("div");
