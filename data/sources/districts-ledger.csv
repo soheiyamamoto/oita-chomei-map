@@ -35,5 +35,5 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 34,判田台地区,大字上判田・大字中判田,2018-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hanndadai.pdf,80,done,,末尾切断懸念は解消(2389番地の47で正常終了)。house列のハイフン形式(棟-号室)はbuild-lookup.mjsのバリデーションを緩和して許容。大字誤記1件(上宗方→上判田)を修正済み
 35,寒田わかば台地区,(資料に大字記載なし),2017-11-03,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/soudawakabadai.pdf,16,done,,
 36,下郡山の手地区,(資料に大字記載なし),2017-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/simogooriyamanote.pdf,22,done,,
-37,松が丘地区,(資料に大字記載なし),2016-01-09,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/matugaoka.pdf,70,pending,,
+37,松が丘地区,大字小野鶴・大字上宗方,2016-01-09,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/matugaoka.pdf,70,pending,,web_fetch経由の抽出が不完全だったため、ユーザー提供のPDF実ファイル(matugaoka.pdf)をpdfplumberで直接解析し全34ページ・1636行を再抽出。gemini-request-松が丘地区.txt作成済み、Gemini変換待ち
 38,京が丘地区,(資料に大字記載なし),2015-11-21,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyougaoka.pdf,27,done,,
