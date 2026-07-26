@@ -82,6 +82,11 @@ seq,old_address,alias,new_town,block,house,source_doc,source_page,confidence,not
    勝手に置換しない
 6. **1つの旧住所に複数の新住所**(またはその逆)が対応する場合は、
    組み合わせごとに行を分け、note に「1対多」と記録する
+7. **alias 列への複数情報源の結合**: alias 列は通常1つの情報源(通称)から
+   得られるが、原本に建物名と部屋番号が別列で存在し、block/house 列だけでは
+   住戸を区別できない場合は、両者をスペース区切りで結合して alias に格納する
+   (note 用の読点「、」とは区別する)。深河内地区がこの結合ルールの最初の
+   適用例(旧通称列+備考列→alias、151行)。
 
 ## 5. 確信度(confidence)と品質ルール
 
