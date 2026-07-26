@@ -50,7 +50,15 @@ const REQUIRED_NONEMPTY_COLUMNS = [
   "confidence",
 ];
 
-const NUMERIC_COLUMNS = ["block", "house"];
+// block: 街区番号は常に単一の数字。
+// house: 住居番号は通常は単一の数字だが、集合住宅の一部で資料自体が
+//   「棟番号-号室番号」形式(例: 42-1007)を正式な号として印字しているケースがある。
+//   そのため house 列に限り「数字1つ」または「数字-数字」の2パターンのみ許容する。
+//   全角数字混入やハイフン以外の記号(例: 42－101 の全角ハイフン)は引き続きエラーとする。
+const NUMERIC_COLUMN_PATTERNS = {
+  block: /^[0-9]+$/,
+  house: /^[0-9]+(-[0-9]+)?$/,
+};
 
 // ----- CSV パーサ(ダブルクォート・埋め込み改行対応、追加依存なし) -----
 function parseCsv(text) {
@@ -230,10 +238,11 @@ function main() {
         }
       }
 
-      for (const col of NUMERIC_COLUMNS) {
-        if (row[col] !== "" && !/^[0-9]+$/.test(row[col])) {
+      for (const col of Object.keys(NUMERIC_COLUMN_PATTERNS)) {
+        const pattern = NUMERIC_COLUMN_PATTERNS[col];
+        if (row[col] !== "" && !pattern.test(row[col])) {
           errors.push(
-            `${filename}:${line}: "${col}" が数字ではありません("${row[col]}")`
+            `${filename}:${line}: "${col}" が想定形式(数字、houseのみ「数字-数字」も可)ではありません("${row[col]}")`
           );
           fileErrorCount++;
           rowHasError = true;
