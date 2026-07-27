@@ -22,7 +22,7 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 21,カームタウン木ノ上地区,大字木上・大字市・大字田原,2021-01-16,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kinouedaitaisyoubo.pdf,115,done,,v2.0で公開済み(255件)
 22,旭町・三ケ田町・永興・竹の上・中の瀬団地地区,大字永興・大字奥田・大字荏隈,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/asahimatikyuusinn.pdf,361,pending,,
 23,二又町・田中町地区,大字永興・大字羽屋・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinpdf.pdf,322,pending,,
-24,豊饒地区,大字畑中・大字羽屋・大字豊饒,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/bunyoutaisyoubo.pdf,168,in_progress,,
+24,豊饒地区,大字畑中・大字羽屋・大字豊饒,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/bunyoutaisyoubo.pdf,168,done,,web_fetch経由のPDFテキスト抽出は末尾で切断を確認したが、Gemini変換後のCSVは937行・全件confidence highで大字畑中/羽屋/豊饒の3区画とも自然に完結。大字羽屋セクションが1行のみである点は原本のページ構成(1ページ1行)として目視確認済み
 25,畑中地区,大字羽屋・大字畑中・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hatakenakakyuusinnpdf.pdf,347,pending,,
 26,明磧町地区,大字荏隈・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/akegawarataisyoubo.pdf,178,pending,,
 27,森町西地区,大字葛木・大字森町・大字皆春,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-morimati.pdf,249,pending,,
