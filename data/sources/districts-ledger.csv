@@ -2,7 +2,7 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 1,光吉新町地区,大字田尻・大字光吉,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/mitsuyoshishinmachi.pdf,183,pending,,
 2,光吉台地区,大字光吉,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/mitsuyoshidai.pdf,190,pending,,
 3,高城団地地区,大字千歳,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/takajodanchi.pdf,190,pending,,
-4,高城台地区,大字小池原・大字千歳・大字東明野,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/takajodai.pdf,138,in_progress,,
+4,高城台地区,大字小池原・大字千歳・大字東明野,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/takajodai.pdf,138,done,,web_fetch経由のPDFテキスト抽出(3大字とも自然終了を確認)をGemini変換。テキスト抽出時に列順序が乱れて生じた重複断片19件をlow行として検出・削除しhigh行に記録。510行、全件confidence high
 5,宗方台地区,大字上宗方・大字小野鶴,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/munakatadai.pdf,232,pending,,
 6,深河内地区,大字荏隈・大字永興,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hukagawauti.pdf,85,done,,web_fetch経由のPDFテキスト抽出が不完全だったため、BODIKオープンデータカタログのXLSX原本(kyusin_hukagawauti.xlsx、ユーザー提供の構造化CSV版)を直接使用しGemini変換を経ずにv2スキーマへ変換。333行→完全重複39件を集約し294行。号枝(house)列のハイフン形式(棟-号室)はbuild-lookup.mjsのバリデーション緩和により許容。備考列(建物名等)は旧通称列と結合してaliasに格納
 7,上野丘二丁目隣接地区,大字永興・大字上野,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/uenogaoka.pdf,46,done,,最小クラス
