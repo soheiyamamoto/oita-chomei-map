@@ -8,7 +8,7 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 7,上野丘二丁目隣接地区,大字永興・大字上野,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/uenogaoka.pdf,46,done,,最小クラス
 8,新明治地区,大字猪野,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-sinnmeiji.pdf,87,done,,web_fetch経由のPDFテキスト抽出(末尾自然終了を確認)をGemini変換。266行、全件confidence high/medium
 9,萌葱台地区,大字市・大字小野鶴・大字田原,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-moegidai.pdf,314,pending,,
-10,梅が丘地区,大字杉原,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-umegaoka.pdf,112,in_progress,,
+10,梅が丘地区,大字杉原,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-umegaoka.pdf,112,done,,web_fetch経由のPDFテキスト抽出は同一箇所で繰り返し末尾切断を確認したが、ユーザー側で完全なテキストを取得しGemini変換。595行、全件confidence high、機械検証(必須列・block/house形式・重複・■・文字化け)済み
 11,京が丘南4丁目地区,大字下判田・大字松岡,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kyougaoka.pdf,52,done,,
 12,国分台地区,大字国分,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kokubudai.pdf,53,done,,
 13,ふじが丘地区,大字光吉・大字田尻・大字寒田・大字岡川,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/fujigaoka.pdf,675,pending,,
