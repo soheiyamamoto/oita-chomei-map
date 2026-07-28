@@ -1,6 +1,6 @@
 seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_order,note
 1,光吉新町地区,大字田尻・大字光吉,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/mitsuyoshishinmachi.pdf,183,done,,"BODIKオープンデータカタログのXLSX(sinmachi.xlsx)がdatastore公開されていたため、CKAN datastore_search APIから781行を直接取得しGemini変換を経ずにv2スキーマへ変換。大字+番地の正規形式でない旧住所12件のうち9件は他行と町名・番・号枝が完全一致し情報損失なしと確認の上除外、残り3件(id777,778,779)はユーザー承認によりconfidence lowで採用しnoteに内容未検証の旨を記録。完全重複112件を集約し660行"
-2,光吉台地区,大字光吉,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/mitsuyoshidai.pdf,190,in_progress,,
+2,光吉台地区,大字光吉,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/mitsuyoshidai.pdf,190,done,,"BODIKオープンデータカタログのXLSX(mitsuyoshidai.xlsx)がdatastore公開されていたため、CKAN datastore_search APIから877行を直接取得しGemini変換を経ずにv2スキーマへ変換。完全重複146件を集約し731行、全件confidence high"
 3,高城団地地区,大字千歳,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/takajodanchi.pdf,190,in_progress,,
 4,高城台地区,大字小池原・大字千歳・大字東明野,2025-11-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/takajodai.pdf,138,done,,web_fetch経由のPDFテキスト抽出(3大字とも自然終了を確認)をGemini変換。テキスト抽出時に列順序が乱れて生じた重複断片19件をlow行として検出・削除しhigh行に記録。510行、全件confidence high
 5,宗方台地区,大字上宗方・大字小野鶴,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/munakatadai.pdf,232,in_progress,,
