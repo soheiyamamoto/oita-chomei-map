@@ -7,12 +7,12 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 6,深河内地区,大字荏隈・大字永興,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hukagawauti.pdf,85,done,,web_fetch経由のPDFテキスト抽出が不完全だったため、BODIKオープンデータカタログのXLSX原本(kyusin_hukagawauti.xlsx、ユーザー提供の構造化CSV版)を直接使用しGemini変換を経ずにv2スキーマへ変換。333行→完全重複39件を集約し294行。号枝(house)列のハイフン形式(棟-号室)はbuild-lookup.mjsのバリデーション緩和により許容。備考列(建物名等)は旧通称列と結合してaliasに格納
 7,上野丘二丁目隣接地区,大字永興・大字上野,2025-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/uenogaoka.pdf,46,done,,最小クラス
 8,新明治地区,大字猪野,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-sinnmeiji.pdf,87,done,,web_fetch経由のPDFテキスト抽出(末尾自然終了を確認)をGemini変換。266行、全件confidence high/medium
-9,萌葱台地区,大字市・大字小野鶴・大字田原,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-moegidai.pdf,314,pending,,
+9,萌葱台地区,大字市・大字小野鶴・大字田原,2024-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-moegidai.pdf,314,in_progress,,
 10,梅が丘地区,大字杉原,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-umegaoka.pdf,112,done,,web_fetch経由のPDFテキスト抽出は同一箇所で繰り返し末尾切断を確認したが、ユーザー側で完全なテキストを取得しGemini変換。595行、全件confidence high、機械検証(必須列・block/house形式・重複・■・文字化け)済み
 11,京が丘南4丁目地区,大字下判田・大字松岡,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kyougaoka.pdf,52,done,,
 12,国分台地区,大字国分,2023-01-07,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusin-kokubudai.pdf,53,done,,
 13,ふじが丘地区,大字光吉・大字田尻・大字寒田・大字岡川,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/fujigaoka.pdf,675,pending,,
-14,城南団地地区,大字永興・大字三芳,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/jyonan.pdf,275,pending,,
+14,城南団地地区,大字永興・大字三芳,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/jyonan.pdf,275,done,,"BODIKのXLSX(jyonantaisyobo202202.xlsx)はdatastore上74件のみで大字永興が丸ごと欠落した不完全データと判明したため破棄。ユーザーがPDF全文を独自にマージ・変換したCSV(1495行)をアップロード、独立検品(必須列空欄・block/house形式・重複・■・列数異常・町名文字化けすべてゼロ、BODIK大字三芳4件との突合完全一致)を実施。大字なし書式外住所3件のうち2件(id1431,1433)は他行と町名・番・号が完全一致し情報損失なしと確認の上除外、残り1件(id1432)は他行でカバーされていないためconfidence lowで採用しnoteに内容未検証の旨を記録。1493行(high1492+low1)"
 15,新川西地区,大字勢家,2022-01-08,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/sinkawanisi.pdf,138,done,,BODIKオープンデータカタログのXLSX(shinkawanishitaisyobo202202.xlsx)がdatastore公開されていたため、CKAN datastore_search APIから399行を直接取得しGemini変換を経ずにv2スキーマへ変換。町名・番・号枝が全て空欄の不完全行1件(元データ側の不備)を除外し398行、完全重複41件を集約し357行。旧通称列と備考列(建物名等)はaliasへ結合(深河内地区で確立したルール踏襲)
 16,南太平寺・上田町地区,大字永興・大字羽屋・大字古国府,2021-01-16,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/minamitaiheijiuedamachikyushinpdf.pdf,485,pending,,
 17,古国府・古国府東地区,大字古国府・大字永興,2021-01-16,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/furugoutaisyoubo.pdf,6311,pending,,最大。最後に回す
@@ -21,11 +21,11 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 20,尼ケ瀬・荏隈町・賀来新川・ツインプラザ大分地区,大字荏隈・大字奥田・大字賀来,2021-01-16,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/amagasehokataisyoubo.pdf,412,pending,,
 21,カームタウン木ノ上地区,大字木上・大字市・大字田原,2021-01-16,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kinouedaitaisyoubo.pdf,115,done,,v2.0で公開済み(255件)
 22,旭町・三ケ田町・永興・竹の上・中の瀬団地地区,大字永興・大字奥田・大字荏隈,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/asahimatikyuusinn.pdf,361,pending,,
-23,二又町・田中町地区,大字永興・大字羽屋・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinpdf.pdf,322,pending,,
+23,二又町・田中町地区,大字永興・大字羽屋・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinpdf.pdf,322,in_progress,,
 24,豊饒地区,大字畑中・大字羽屋・大字豊饒,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/bunyoutaisyoubo.pdf,168,done,,web_fetch経由のPDFテキスト抽出は末尾で切断を確認したが、Gemini変換後のCSVは937行・全件confidence highで大字畑中/羽屋/豊饒の3区画とも自然に完結。大字羽屋セクションが1行のみである点は原本のページ構成(1ページ1行)として目視確認済み
-25,畑中地区,大字羽屋・大字畑中・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hatakenakakyuusinnpdf.pdf,347,pending,,
+25,畑中地区,大字羽屋・大字畑中・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hatakenakakyuusinnpdf.pdf,347,in_progress,,
 26,明磧町地区,大字荏隈・大字奥田,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/akegawarataisyoubo.pdf,178,done,,"web_fetch経由のPDFテキスト抽出は大字奥田の途中で切断を確認したため保留していたが、ユーザーがPDFを直接アップロードしGemini変換したCSVを反映。971行、全件confidence high。独立検品(必須列空欄・block/house形式・重複・■・列数異常・町名文字化け)ですべてゼロを確認。大字荏隈189件・大字奥田782件"
-27,森町西地区,大字葛木・大字森町・大字皆春,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-morimati.pdf,249,pending,,
+27,森町西地区,大字葛木・大字森町・大字皆春,2020-01-11,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyuusinn-morimati.pdf,249,in_progress,,
 28,田尻グリーンハイツ地区,大字田尻・大字高瀬,2019-01-12,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/tajirighnanuki.pdf,62,done,,
 29,横尾土地区画整理事業地区,(資料に大字記載なし),2019-01-12,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/yokookyuusinn.pdf,757,pending,,
 30,雄城台団地・雄城台住宅地・椿ケ丘・二豊および上宗方の一部地区,大字上宗方,2019-01-12,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyusintaisyoubo.pdf,63,done,,末尾切断懸念は解消(765番地の12で正常終了)。house列のハイフン形式(棟-号室)はbuild-lookup.mjsのバリデーションを緩和して許容
