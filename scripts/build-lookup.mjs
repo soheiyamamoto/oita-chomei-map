@@ -57,7 +57,7 @@ const REQUIRED_NONEMPTY_COLUMNS = [
 //   全角数字混入やハイフン以外の記号(例: 42－101 の全角ハイフン)は引き続きエラーとする。
 const NUMERIC_COLUMN_PATTERNS = {
   block: /^[0-9]+$/,
-  house: /^[0-9]+(-[0-9]+)?$/,
+  house: /^[0-9]+(-[0-9]+|-[A-Za-z][0-9]+)?$/,
 };
 
 // ----- CSV パーサ(ダブルクォート・埋め込み改行対応、追加依存なし) -----
@@ -195,8 +195,8 @@ function main() {
     if (!headerMatches) {
       errors.push(
         `${filename}: ヘッダーが v2 仕様と一致しません\n` +
-          `  期待: ${REQUIRED_HEADER.join(",")}\n` +
-          `  実際: ${header.join(",")}`
+        `  期待: ${REQUIRED_HEADER.join(",")}\n` +
+        `  実際: ${header.join(",")}`
       );
       continue;
     }
