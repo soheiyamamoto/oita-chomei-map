@@ -40,9 +40,10 @@ const REQUIRED_HEADER = [
 ];
 
 // alias / source_page / note は空欄を許容する
+// old_address は原則必須だが、confidence=low かつ note に理由が明記されている
+// 場合に限り例外的に空欄を許容する(下記の専用チェックで処理する)。
 const REQUIRED_NONEMPTY_COLUMNS = [
   "seq",
-  "old_address",
   "new_town",
   "block",
   "house",
@@ -233,6 +234,19 @@ function main() {
       for (const col of REQUIRED_NONEMPTY_COLUMNS) {
         if (row[col] === "") {
           errors.push(`${filename}:${line}: 必須列 "${col}" が空です`);
+          fileErrorCount++;
+          rowHasError = true;
+        }
+      }
+
+      // old_address は原則必須だが、confidence=low かつ note に理由が明記されて
+      // いる場合のみ、資料上old_addressに相当する記載が存在しない行として空欄を
+      // 許容する(通称・新住所は揃っており検索価値があるため削除しない方針)。
+      if (row.old_address === "") {
+        if (row.confidence !== "low" || row.note === "") {
+          errors.push(
+            `${filename}:${line}: "old_address" が空です(confidence=low かつ note 記載がある場合のみ空欄を許容します)`
+          );
           fileErrorCount++;
           rowHasError = true;
         }
