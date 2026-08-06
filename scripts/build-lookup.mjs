@@ -56,9 +56,11 @@ const REQUIRED_NONEMPTY_COLUMNS = [
 //   「棟番号-号室番号」形式(例: 42-1007)を正式な号として印字しているケースがある。
 //   そのため house 列に限り「数字1つ」または「数字-数字」の2パターンのみ許容する。
 //   全角数字混入やハイフン以外の記号(例: 42－101 の全角ハイフン)は引き続きエラーとする。
+//   畑中地区(刑務所官舎)では「棟記号(英字1文字)-号室番号」形式(例: D-101)が
+//   正式な号として資料に印字されているため、この形式も追加で許容する。
 const NUMERIC_COLUMN_PATTERNS = {
   block: /^[0-9]+$/,
-  house: /^[0-9]+(-[0-9]+|-[A-Za-z][0-9]+)?$/,
+  house: /^[0-9]+(-[0-9]+|-[A-Za-z][0-9]+)?$|^[A-Za-z]-[0-9]+$/,
 };
 
 // ----- CSV パーサ(ダブルクォート・埋め込み改行対応、追加依存なし) -----
@@ -256,7 +258,7 @@ function main() {
         const pattern = NUMERIC_COLUMN_PATTERNS[col];
         if (row[col] !== "" && !pattern.test(row[col])) {
           errors.push(
-            `${filename}:${line}: "${col}" が想定形式(数字、houseのみ「数字-数字」も可)ではありません("${row[col]}")`
+            `${filename}:${line}: "${col}" が想定形式(数字、houseのみ「数字-数字」「英字-数字」も可)ではありません("${row[col]}")`
           );
           fileErrorCount++;
           rowHasError = true;
