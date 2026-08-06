@@ -29,7 +29,7 @@ seq,district,oaza,implementation_date,pdf_url,file_size_kb,status,recommended_or
 28,田尻グリーンハイツ地区,大字田尻・大字高瀬,2019-01-12,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/tajirighnanuki.pdf,62,done,,
 29,横尾土地区画整理事業地区,(資料に大字記載なし),2019-01-12,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/yokookyuusinn.pdf,757,pending,,
 30,雄城台団地・雄城台住宅地・椿ケ丘・二豊および上宗方の一部地区,大字上宗方,2019-01-12,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/kyusintaisyoubo.pdf,63,done,,末尾切断懸念は解消(765番地の12で正常終了)。house列のハイフン形式(棟-号室)はbuild-lookup.mjsのバリデーションを緩和して許容
-31,東原地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/higasibaru.pdf,402,pending,,
+31,東原地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/higasibaru.pdf,402,done,,"web_fetch経由のPDFテキスト抽出(全16ページ・末尾自然終了を確認)をGemini非経由でPythonにより直接パース。列構成が旧住所|通称|新住所で規則的・全469行が単一正規表現に0例外で一致したため直接採用。BODIKのXLSX(higasibarutaisyoubo.xlsx)はdatastore非公開で件数照合不可のため不使用。完全重複141件を集約し328行、全件confidence high。house列のハイフン形(集合住宅の号-室、11-101/20-101等)はbuild-lookup許容形式内。★(法人)印37行は集約後32ユニークのnoteに記録。資料は大字千歳154・大字牧315の2大字構成で、台帳oaza欄「(資料に大字記載なし)」は資料実態と相違(old_addressは資料どおり大字千歳/大字牧を採用)"
 32,明野南二丁目隣接地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/akenominamikyuusinntaisyoubo.pdf,13,done,,最小(全地区中最小)
 33,田尻南地区,(資料に大字記載なし),2018-11-23,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/tajiriminamikyuusinntaisyoubo.pdf,30,done,,
 34,判田台地区,大字上判田・大字中判田,2018-01-06,https://www.city.oita.oita.jp/o040/kurashi/sumaijoho/documents/hanndadai.pdf,80,done,,末尾切断懸念は解消(2389番地の47で正常終了)。house列のハイフン形式(棟-号室)はbuild-lookup.mjsのバリデーションを緩和して許容。大字誤記1件(上宗方→上判田)を修正済み
