@@ -208,5 +208,33 @@
     "date": "2018-11-23",
     "lat": null,
     "lng": null
+  },
+  {
+    "slug": "haya",
+    "name": "羽屋・羽屋新町地区",
+    "date": "2021-01-16",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "slug": "fujigaoka",
+    "name": "ふじが丘地区",
+    "date": "2022-01-08",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "slug": "amagase",
+    "name": "尼ケ瀬・荏隈町・賀来新川・ツインプラザ大分地区",
+    "date": "2021-01-16",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "slug": "yokoo",
+    "name": "横尾土地区画整理事業地区",
+    "date": "2019-01-12",
+    "lat": null,
+    "lng": null
   }
 ]
