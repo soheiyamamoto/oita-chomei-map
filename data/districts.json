@@ -236,5 +236,26 @@
     "date": "2019-01-12",
     "lat": null,
     "lng": null
+  },
+  {
+    "slug": "minamitaiheiji",
+    "name": "南太平寺・上田町地区",
+    "date": "2021-01-16",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "slug": "hirosemati",
+    "name": "広瀬町・花園地区",
+    "date": "2021-01-16",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "slug": "furugou",
+    "name": "古国府・古国府東地区",
+    "date": "2021-01-16",
+    "lat": null,
+    "lng": null
   }
 ]
